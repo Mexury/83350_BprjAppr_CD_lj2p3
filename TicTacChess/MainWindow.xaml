@@ -1,0 +1,95 @@
+﻿<Window x:Class="TicTacChess.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicTacChess"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="MainButton" Background="Transparent" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border x:Name="CanvasBorder" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Canvas x:Name="MainCanvas" Width="300" Height="300">
+
+                </Canvas>
+            </Border>
+        </Button>
+
+        <!-- <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+
+                <Border x:Name="Tile_0" Background="Black" Grid.Column="0" Grid.Row="0">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="60" CornerRadius="100" Background="#80ff9900"></Border>
+                        <TextBlock x:Name="Tile_0_text" HorizontalAlignment="Center" VerticalAlignment="Center">test</TextBlock>
+                    </Grid>
+                </Border>
+                <Border x:Name="Tile_1" Background="White" Grid.Column="1" Grid.Row="0">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="60" CornerRadius="100" Background="#80ff9900"></Border>
+                        <TextBlock x:Name="Tile_1_text" HorizontalAlignment="Center" VerticalAlignment="Center">test</TextBlock>
+                    </Grid>
+                </Border>
+                <Border x:Name="Tile_2" Background="Black" Grid.Column="2" Grid.Row="0">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="60" CornerRadius="100" Background="#80ff9900"></Border>
+                        <TextBlock x:Name="Tile_2_text" HorizontalAlignment="Center" VerticalAlignment="Center">test</TextBlock>
+                    </Grid>
+                </Border>
+
+                <Border x:Name="Tile_3" Background="White" Grid.Column="0" Grid.Row="1">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="60" CornerRadius="100" Background="#80ff9900"></Border>
+                        <TextBlock x:Name="Tile_3_text" HorizontalAlignment="Center" VerticalAlignment="Center">test</TextBlock>
+                    </Grid>
+                </Border>
+                <Border x:Name="Tile_4" Background="Black" Grid.Column="1" Grid.Row="1">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="60" CornerRadius="100" Background="#80ff9900"></Border>
+                        <TextBlock x:Name="Tile_4_text" HorizontalAlignment="Center" VerticalAlignment="Center">test</TextBlock>
+                    </Grid>
+                </Border>
+                <Border x:Name="Tile_5" Background="White" Grid.Column="2" Grid.Row="1">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="60" CornerRadius="100" Background="#80ff9900"></Border>
+                        <TextBlock x:Name="Tile_5_text" HorizontalAlignment="Center" VerticalAlignment="Center">test</TextBlock>
+                    </Grid>
+                </Border>
+
+                <Border x:Name="Tile_6" Background="Black" Grid.Column="0" Grid.Row="2">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="60" CornerRadius="100" Background="#80ff9900"></Border>
+                        <TextBlock x:Name="Tile_6_text" HorizontalAlignment="Center" VerticalAlignment="Center">test</TextBlock>
+                    </Grid>
+                </Border>
+                <Border x:Name="Tile_7" Background="White" Grid.Column="1" Grid.Row="2">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="60" CornerRadius="100" Background="#80ff9900"></Border>
+                        <TextBlock x:Name="Tile_7_text" HorizontalAlignment="Center" VerticalAlignment="Center">test</TextBlock>
+                    </Grid>
+                </Border>
+                <Border x:Name="Tile_8" Background="Black" Grid.Column="2" Grid.Row="2">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="60" CornerRadius="100" Background="#80ff9900"></Border>
+                        <TextBlock x:Name="Tile_8_text" HorizontalAlignment="Center" VerticalAlignment="Center">test</TextBlock>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border> -->
+    </Grid>
+</Window>
