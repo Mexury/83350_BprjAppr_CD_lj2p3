@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -48,6 +49,12 @@ namespace TicTacChess
 
         bool movesLikeKnight = true;
         bool canSkipPieces = true;
+
+        public bool CanSkipPieces
+        {
+            get { return canSkipPieces; }
+        }
+
 
         public Piece(Chessboard chessboard, string type = "rook") {
             this.type = type;
@@ -208,6 +215,7 @@ namespace TicTacChess
             }
 
             chessboard.savedMoves = moves;
+            chessboard.occupiedMoves = occupied;
         }
     }
 
@@ -218,6 +226,7 @@ namespace TicTacChess
         public Piece? selected;
         public List<Piece> pieces = new();
         public List<Position> savedMoves = new();
+        public List<Position> occupiedMoves = new();
 
         public Chessboard(Canvas canvas, Border canvasBorder)
         {
@@ -327,10 +336,48 @@ namespace TicTacChess
                         move.y * 100 == (int)dy)
                     {
                         // selected a valid move.
-                        selected.SetPos((int)dx, (int)dy);
-                        selected.CalculateMoves();
 
-                        CheckWinner();
+                        if (selected != null)
+                        {
+                            Position old = selected.pos;
+                            Position cur = new Position((int)dx, (int)dy);
+                            Debug.WriteLine($"x{old.x}, y{old.y} -> x{cur.x}, y{cur.y}");
+
+                            // averages
+                            int ax = (old.x + cur.x + 100) / 3;
+                            int ay = (old.y + cur.y + 100) / 3;
+
+                            bool isValidMove = true;
+                            Debug.WriteLine($"x{ax}, y{ay}");
+
+                            int xDiff = Math.Abs(old.x - cur.x);
+                            int yDiff = Math.Abs(old.y - cur.y);
+
+                            Debug.WriteLine($"DIFF: x{xDiff}, y{yDiff}");
+                            Position? occupant = null;
+
+                            if (xDiff >= 200)
+                            {
+                                occupant = (yDiff >= 200) ? occupiedMoves.FirstOrDefault(_ => _.x == ax && _.y == ay) : occupiedMoves.FirstOrDefault(_ => _.x == ax && _.y == cur.y);
+                            } 
+                            else if (yDiff >= 200)
+                            {
+                                occupant = occupiedMoves.FirstOrDefault(_ => _.x == cur.x && _.y == ay);
+                            }
+                            
+                            if (occupant != null)
+                            {
+                                Debug.WriteLine($"OCCUPANT: x{occupant.x}, {occupant.y}");
+                                isValidMove = selected.CanSkipPieces;
+                            }
+
+                            if (isValidMove)
+                            {
+                                selected.SetPos((int)dx, (int)dy);
+                                selected.CalculateMoves();
+                                CheckWinner();
+                            }
+                        }
                     }
                 }
             }
@@ -417,25 +464,37 @@ namespace TicTacChess
             Piece dark_rook = new Piece(chessboard, "rook");
             Piece dark_knight = new Piece(chessboard, "knight");
 
+            // ------------------------------------------
+
             chessboard.pieces.Add(queen);
+            queen.SetPos(0, 200);
+
             chessboard.pieces.Add(rook);
+            rook.SetPos(100, 200);
+
             chessboard.pieces.Add(knight);
+            knight.SetPos(200, 200);
+
+            // ------------------------------------------
 
             chessboard.pieces.Add(dark_queen);
-            chessboard.pieces.Add(dark_rook);
-            chessboard.pieces.Add(dark_knight);
-
             dark_queen.color = "black";
-            dark_rook.color = "black";
-            dark_knight.color = "black";
-            
             dark_queen.SetPos(0, 0);
+
+            chessboard.pieces.Add(dark_rook);
+            dark_rook.color = "black";
             dark_rook.SetPos(100, 0);
+
+            chessboard.pieces.Add(dark_knight);
+            dark_knight.color = "black";
             dark_knight.SetPos(200, 0);
 
-            queen.SetPos(0, 200);
-            rook.SetPos(100, 200);
-            knight.SetPos(200, 200);
+            // ------------------------------------------
+
+
+
+
+
 
             MainButton.Click += MainButton_Click;
         }
