@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alber\\source\\repos\\TicTacChess\\TicTacChess\\TicTacChess.csproj",
+      "projectUniqueName": "C:\\Users\\alber\\source\\repos\\tic-tac-chess\\TicTacChess\\TicTacChess.csproj",
       "projectName": "TicTacChess",
-      "projectPath": "C:\\Users\\alber\\source\\repos\\TicTacChess\\TicTacChess\\TicTacChess.csproj",
+      "projectPath": "C:\\Users\\alber\\source\\repos\\tic-tac-chess\\TicTacChess\\TicTacChess.csproj",
       "packagesPath": "C:\\Users\\alber\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alber\\source\\repos\\TicTacChess\\TicTacChess\\obj\\",
+      "outputPath": "C:\\Users\\alber\\source\\repos\\tic-tac-chess\\TicTacChess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alber\\AppData\\Roaming\\NuGet\\NuGet.Config",

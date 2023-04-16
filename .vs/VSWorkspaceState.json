@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TicTacChess"
+    "\\TicTacChess",
+    "\\TicTacChess\\Resources"
   ],
   "SelectedNode": "\\TicTacChess\\MainWindow.xaml.cs",
   "PreviewInSolutionExplorer": false
