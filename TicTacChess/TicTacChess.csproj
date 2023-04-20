@@ -8,15 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\black_king.png" />
     <None Remove="Resources\black_knight.png" />
     <None Remove="Resources\black_queen.png" />
     <None Remove="Resources\black_rook.png" />
+    <None Remove="Resources\black_wizard.png" />
+    <None Remove="Resources\king.png" />
     <None Remove="Resources\knight.png" />
     <None Remove="Resources\queen.png" />
     <None Remove="Resources\rook.png" />
+    <None Remove="Resources\wizard.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\black_king.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\black_knight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -26,6 +33,12 @@
     <Resource Include="Resources\black_rook.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\black_wizard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\king.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\knight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -33,6 +46,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\rook.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\wizard.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

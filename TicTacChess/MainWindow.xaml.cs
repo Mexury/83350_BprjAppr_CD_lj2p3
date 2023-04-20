@@ -18,11 +18,6 @@ using System.Windows.Shapes;
 
 namespace TicTacChess
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    ///
-
     public partial class MainWindow : Window
     {
         Chessboard chessboard;
@@ -34,20 +29,18 @@ namespace TicTacChess
             chessboard = new(MainCanvas, CanvasBorder);
             chessboard.UpdateChessboard();
 
+            // The giant button behind the chessboard so click events work.
             MainButton.Click += MainButton_Click;
         }
 
         private void MyControl_MouseMove(object sender, MouseEventArgs e)
         {
             Point mouse = e.GetPosition(this);
-            //Debug.WriteLine($"{mouse.X} {mouse.Y}");
 
+            // If you're currently trying to place a piece, it will draw on top of your mouse position.
             if (chessboard.gameState == GameState.PLACING_PIECES &&
                 chessboard.placing != null)
             {
-                // has placing
-
-                //chessboard.UpdateChessboard();
                 chessboard.DrawPlacingMouse(mouse);
             }
         }
@@ -56,19 +49,20 @@ namespace TicTacChess
         {
             Point position = Mouse.GetPosition((Button)sender);
 
+            // Set the gamestate and gameturn based on the current gamestate.
             if (chessboard.gameState == GameState.NOT_STARTED)
             {
                 chessboard.gameState = GameState.PLACING_PIECES;
                 chessboard.gameTurn = GameTurn.WHITE;
             }
-
-            if (chessboard.gameState == GameState.WINNER)
+            else if (chessboard.gameState == GameState.WINNER)
             {
                 chessboard.gameState = GameState.NOT_STARTED;
                 chessboard.gameTurn = GameTurn.WHITE;
                 chessboard.FullReset();
             }
 
+            // Calculate coordinates from this click event.
             chessboard.CalculateTileCoordinatesFromClick(position.X, position.Y);
         }
     }

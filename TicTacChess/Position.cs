@@ -1,5 +1,8 @@
 namespace TicTacChess
 {
+    /// <summary>
+    /// <c>Position</c> -> A class for keeping track of 2D vector.
+    /// </summary>
     public class Position
     {
         public int x = 0;
